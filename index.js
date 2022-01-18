@@ -1,4 +1,5 @@
 import decideWinner from "./decideWinner.js"
+import calculateWinRatio from "./calculateWinRatio.js"
 
 let dataFeed = []
 
@@ -7,5 +8,6 @@ fetch("https://blooming-retreat-52483.herokuapp.com/https://bad-api-assignment.r
     .then(res => res.json())
     .then(data => {
         dataFeed = data
+        console.log(data.data)
         decideWinner(dataFeed)
     })

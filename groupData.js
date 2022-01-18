@@ -1,4 +1,5 @@
 import addHandsArray from "./addHandsArray.js"
+import calculateWinRatio from "./calculateWinRatio.js"
 
 // Group the games by player
 export default function groupData(data) {
@@ -19,6 +20,5 @@ export default function groupData(data) {
 
         return player
     }, {})
-    console.log(groupedByPlayer)
-    addHandsArray(groupedByPlayer)
+    calculateWinRatio(groupedByPlayer)
 }

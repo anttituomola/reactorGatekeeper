@@ -1,4 +1,5 @@
-import calculateWinRatio from "./calculateWinRatio.js"
+
+import printPlayers from "./printPlayers.js"
 
 // Add the most common hand for each player
 export default function findMostCommonHand(hands) {
@@ -7,8 +8,8 @@ export default function findMostCommonHand(hands) {
             acc[val] = (acc[val] || 0) + 1
             return acc
         }, {})
-         player.mostCommondHand =  Object.keys(hashmap).reduce((a, b) => hashmap[a] > hashmap[b] ? a : b)
+         player.mostCommondHand =  Object.keys(hashmap).reduce((a, b) => hashmap[a] > hashmap[b] ? a : b,0)
          return player
     })
-    calculateWinRatio(mostCommondHand)
+    printPlayers(mostCommondHand)
 }
