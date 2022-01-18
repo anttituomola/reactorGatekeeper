@@ -27,10 +27,10 @@ function groupData(data) {
 
         return player
     }, {})
-    printPlayers(groupedByPlayer)
     addHandsArray(groupedByPlayer)
 }
 
+// Figure out who won
 function decideWinner(dataFeed) {
     let winnersAdded = {}
     winnersAdded = Object.entries(dataFeed.data).map(game => {
@@ -50,8 +50,8 @@ function decideWinner(dataFeed) {
     groupData(winnersAdded)
 }
 
+// Add played hands to each player
 function addHandsArray(data) {
-    console.log(data)
     const hands = Object.entries(data).map(player => {
         let handsArray = []
         player["handsArray"] = handsArray
@@ -69,6 +69,7 @@ function addHandsArray(data) {
     findMostCommonHand(hands)
 }
 
+// Add the most common hand for each player
 function findMostCommonHand(hands) {
     const mostCommondHand = Object.entries(hands).map(player => {
         const hashmap = player[1].handsArray.reduce((acc, val) => {
@@ -78,17 +79,19 @@ function findMostCommonHand(hands) {
          player.mostCommondHand =  Object.keys(hashmap).reduce((a, b) => hashmap[a] > hashmap[b] ? a : b)
          return player
     })
-    console.log(mostCommondHand)
+    printPlayers(mostCommondHand)
 }
 
 
-function printPlayers(groupedByPlayer) {
-    const renderPlayers = Object.entries(groupedByPlayer).map(player => {
+function printPlayers(data) {
+    console.log(data)
+    const renderPlayers = Object.entries(data).map(player => {
+        console.log(player)
         return `
-        <h1>${player[0]}</h1>
+        <h1>${player[1][1][0]}</h1>
         <div class="winRatio"></div>
-        <div class="playedGames">Games played: ${player[1].length}</div>
-        <div class"mostPlayedHand">Most played hand: </div>
+        <div class="playedGames">Games played: ${player[1][1].length}</div>
+        <div class"mostPlayedHand">Most played hand: ${player[1].mostCommondHand}</div>
         `
     })
 
