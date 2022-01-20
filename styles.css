@@ -17,3 +17,19 @@
     padding: 1em;
     margin: 0.1em;
 }
+
+.currentGame {
+    width: 250px;
+    height: 300px;
+    border: 1px solid lightblue;
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+#currentGames {
+    display: flex;
+    margin: 2em auto 2em auto;
+    justify-content: center;
+    gap: 1em;
+    min-height: 320px;
+}

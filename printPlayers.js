@@ -9,7 +9,6 @@ export default function printPlayers(data) {
         </div>
         `
     })
-
     const playersDiv = document.getElementById("players")
     playersDiv.innerHTML = renderPlayers.join("")
 

@@ -3,13 +3,17 @@ import eventHandler from "./eventHandler.js"
 
 let dataFeed = []
 
-// Get the data from the API
-fetch("https://blooming-retreat-52483.herokuapp.com/https://bad-api-assignment.reaktor.com/rps/history/")
-    .then(res => res.json())
-    .then(data => {
-        dataFeed = data
-        decideWinner(dataFeed)
-    })
+export default function getData() {
+    // Get the data from the API
+    fetch("https://blooming-retreat-52483.herokuapp.com/https://bad-api-assignment.reaktor.com/rps/history/")
+        .then(res => res.json())
+        .then(data => {
+            dataFeed = data
+            decideWinner(dataFeed)
+        })
+}
+
+getData()
 
     // Listen for game events
     const socket = new WebSocket("ws://bad-api-assignment.reaktor.com/rps/live/")
