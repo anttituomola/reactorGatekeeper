@@ -1,9 +1,10 @@
-import printEvents from "./printEvents.js"
+import PrintEvents from "./PrintEvents.js"
 
 let ongoingGames = []
 
 export default function eventHandler(data) {
     const jsonEvent = JSON.parse(data)
+    const print = new PrintEvents()
 
     if (jsonEvent.type === "GAME_BEGIN") {
         ongoingGames.push(jsonEvent)
@@ -15,11 +16,15 @@ export default function eventHandler(data) {
         const gameid = jsonEvent.gameId
         ongoingGames.map(game => {
             if (game.gameId === gameid) {
+                print.deleteEvent(jsonEvent.gameId, ongoingGames)
+                // TODO
+                // add css animation
+                // add delay for the length of the animation
                 ongoingGames.splice(0,1)
                 console.log("game ended", jsonEvent.gameId)
             }
             return game
         })
     }
-    printEvents(ongoingGames)
+    print.printEvents(ongoingGames)
 }
