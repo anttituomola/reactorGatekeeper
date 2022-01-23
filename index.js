@@ -15,10 +15,10 @@ export default function getData() {
 
 getData()
 
-    // Listen for game events
-    const socket = new WebSocket("ws://bad-api-assignment.reaktor.com/rps/live/")
+// Listen for game events
+const socket = new WebSocket("ws://bad-api-assignment.reaktor.com/rps/live/")
 
-    socket.addEventListener("open", event => socket.send("Hello there!"))
-    socket.addEventListener("message", event => {
-        eventHandler(JSON.parse(event.data))
-    })
+socket.addEventListener("open", event => socket.send("Hello there!"))
+socket.addEventListener("message", event => {
+    eventHandler(JSON.parse(event.data))
+})

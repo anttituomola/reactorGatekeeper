@@ -1,4 +1,4 @@
-import addHandsArray from "./addHandsArray.js"
+/* eslint-disable newline-after-var */
 import calculateWinRatio from "./calculateWinRatio.js"
 
 // Group the games by player
@@ -11,7 +11,7 @@ export default function groupData(data) {
 
         player[game[1][1].playerA.name].push(game)
 
-        //Go through players B
+        // Go through players B
         if (!player[game[1][1].playerB.name]) {
             player[game[1][1].playerB.name] = []
         }

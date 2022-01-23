@@ -1,11 +1,5 @@
-
-
 export default function printPlayers(data) {
-
-
     const renderPlayers = Object.entries(data).map(player => {
-        //TODO
-        // sort players by name
         return `
         <div class="aPlayer">
             <h2>${player[1][1][1][1][0]}</h2>
@@ -15,13 +9,13 @@ export default function printPlayers(data) {
             <h3>Past games</h3>
             ${player[1][1][1][1][1].map(game => {
                 return `<div class="pastGames">
-                    <b>Game ID:</b> ${game[1][1].gameId}, <b>winner:</b> ${game[1][1].winner ? game[1][1].winner : "Tie"}
+                        <b>Game ID:</b> ${game[1][1].gameId}, <b>winner:</b> ${game[1][1].winner ? game[1][1].winner : "Tie"}
                     </div>`
-            }).join("")}
+        }).join("")}
         </div>
         `
     })
     const playersDiv = document.getElementById("players")
-    playersDiv.innerHTML = renderPlayers.join("")
 
+    playersDiv.innerHTML = renderPlayers.join("")
 }

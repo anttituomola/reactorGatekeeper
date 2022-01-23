@@ -1,7 +1,8 @@
-export default class printEvents {
-    printEvents(data) {
-        var currentGames = Object.entries(data).map(game => {
-            return `
+import getData from "./index.js"
+
+export default function printEvents(data) {
+    const currentGames = Object.entries(data).map(game => {
+        return `
             <div class="currentGame">
             <h2>Ongoing game</h2>
             <h3>${game[1].playerA.name}</h3><lb> 
@@ -10,17 +11,11 @@ export default class printEvents {
             Game id: ${game[1].gameId}
             </div>
             `
-        })
+    })
 
-        const currentGamesEl = document.getElementById("currentGames")
-        currentGamesEl.innerHTML = currentGames.join("")
-        // How to smooth out the removed games?
-    }
+    const currentGamesEl = document.getElementById("currentGames")
 
-    deleteEvent(gameId, data) {
-        const deleteEvent = Object.entries(data).map(game => {
-            if (game[1].gameId === gameId) {
-            }
-        })
-    }
-} 
+    currentGamesEl.innerHTML = currentGames.join("")
+    getData()
+}
+
